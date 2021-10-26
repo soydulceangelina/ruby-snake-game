@@ -1,13 +1,21 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    minitest (5.14.4)
     ruby2d (0.11.0)
+    sorbet (0.5.9267)
+      sorbet-static (= 0.5.9267)
+    sorbet-runtime (0.5.9267)
+    sorbet-static (0.5.9267-x86_64-linux)
 
 PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  minitest (~> 5.14.4)
   ruby2d (~> 0.11.0)
+  sorbet (~> 0.5.9267)
+  sorbet-runtime (~> 0.5.9267)
 
 BUNDLED WITH
    2.2.29

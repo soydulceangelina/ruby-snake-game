@@ -1,21 +1,25 @@
+# typed: ignore
 module Model 
-    class Coord < Struct.new(:row, :col)
-        
+    module Direction
+        UP = :up
+        RIGHT = :right
+        DOWN = :down
+        LEFT = :left
     end
 
-    class Food < Coord
-        
+    class Coord < Struct.new(:row, :col) 
     end
 
-    class Snake < Struct.new(:positions)
-        
+    class Food < Coord  
     end
 
-    class Grid < Struct.new(:rows, :cols)
-        
+    class Snake < Struct.new(:positions)  
     end
 
-    class State < Struct.new(:snake, :food, :grid)
+    class Grid < Struct.new(:rows, :cols) 
+    end
+
+    class State < Struct.new(:snake, :food, :grid, :curr_direction, :game_finished)
         
     end
 
@@ -27,6 +31,8 @@ module Model
             ]),
             Model::Food.new( 4,4 ),
             Model::Grid.new( 8, 12 ),
+            Direction::DOWN,
+            false
         )
     end
 end
