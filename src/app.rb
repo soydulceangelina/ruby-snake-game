@@ -1,11 +1,14 @@
-# typed: false
+# typed: true
 require_relative "view/ruby2d"
 require_relative "model/state"
 require_relative "actions/actions"
+require 'sorbet-runtime'
 
 class App
+    extend T::Sig
+
     def initialize
-        @state = Model::initial_state
+        @state = T.let(Model::initial_state, Model::State)
     end
 
     def start

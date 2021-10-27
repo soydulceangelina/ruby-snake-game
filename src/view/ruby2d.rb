@@ -1,7 +1,11 @@
-# typed: false
+# typed: true
 require "ruby2d"
+require 'sorbet-runtime'
+
 module View
     class Ruby2dView
+        extend T::Sig
+
         def initialize(app)
             @pixel_size = 50
             @app = app
@@ -20,6 +24,7 @@ module View
             show
         end
 
+        sig {params(state: Model::State).void}
         def renderGame(state)
             extend Ruby2D::DSL
             close if state.game_finished
