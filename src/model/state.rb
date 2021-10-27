@@ -1,5 +1,10 @@
-# typed: ignore
-module Model 
+# typed: true
+
+require 'sorbet-runtime'
+
+module Model
+    extend T::Sig
+
     module Direction
         UP = :up
         RIGHT = :right
@@ -7,22 +12,23 @@ module Model
         LEFT = :left
     end
 
-    class Coord < Struct.new(:row, :col) 
+    class Coord < Struct.new(:row, :col)
     end
 
-    class Food < Coord  
+    class Food < Coord
     end
 
-    class Snake < Struct.new(:positions)  
+    class Snake < Struct.new(:positions)
     end
 
-    class Grid < Struct.new(:rows, :cols) 
+    class Grid < Struct.new(:rows, :cols)
     end
 
     class State < Struct.new(:snake, :food, :grid, :curr_direction, :game_finished)
-        
     end
 
+
+    sig {returns(Model::State)}
     def self.initial_state
         Model::State.new(
             Model::Snake.new([
