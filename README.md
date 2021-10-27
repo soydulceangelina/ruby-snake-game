@@ -1,3 +1,5 @@
+ruby 2.5.3
+
 # Start game
 
 - clone the repo
